@@ -1,8 +1,9 @@
-extend ./template.pug
+extend ../template.pug
 
  
 block content
-  h1 Welcome to Rent yo' Gear - Home
+  h1 Rent yo' Gear - ADMIN
+  a.btn.btn-primary(href='/admin/create') Create
   .row
     .card-group
       each product in products
@@ -13,4 +14,5 @@ block content
               h5.card-title=product.name
               p.card-text=product.description
               p.card-text Price: $#{product.price}
-              a.btn.btn-primary(href='#') Rent now                  
+              a.btn.btn-info(href='/admin/update/' + product.id) Update
+              a.btn.btn-danger(href="/admin/delete/" + product.id) Delete                  

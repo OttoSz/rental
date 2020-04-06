@@ -1,0 +1,41 @@
+extend ../template.pug
+
+block content
+    p Admin: create new product form
+    form.needs-validation(action="/admin/create" method="post" novalidate)
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputName') Name
+            .col-sm-10
+                input#inputName.form-control(type='text' placeholder='Name' name="name")
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputDescription') Description
+            .col-sm-10
+                input#inputDescription.form-control(type='text' placeholder='Description' name="description")
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputPrice') Price
+            .col-sm-10
+                input#inputPrice.form-control(type='number' placeholder='Price' name="price" required)
+        .form-group.row
+            label.col-sm-2.col-form-label(for='inputImage') Image
+            .col-sm-10
+                input#inputImage.form-control(type='text' placeholder='Image' name="image")
+        button.btn.btn-primary(href='/admin/create') Create
+
+    script.
+        (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // - Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // - Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
