@@ -14,3 +14,8 @@ https://young-wave-82970.herokuapp.com/
 https://git.heroku.com/young-wave-82970.git
 
 https://git.heroku.com/young-wave-82970.git
+
+DB Connection
+
+mongo "mongodb+srv://rental-mzirv.mongodb.net/test"  --username Otyx
+Password : P3ssw@rd or P3ssw%40rd
